@@ -19,25 +19,31 @@ A hardware security project simulating a secure ATM/POS logging node using an ES
 | SPI Micro SD Card Module | Local device-side audit log storage |
 
 ## Architecture
+
+```
 ESP32-S3                         Laptop (Node.js)
-|				    |
-|── TLS handshake (cert verify) ───>|
-|── POST /log (encrypted JSON) ────>|── server/transactions.log
-|<─ {"status":"OK", timestamp} ─────|
-|                                    |
-SD card: txn_log.txt           OLED: live status
-(device audit trail)
+   |                                    |
+   |── TLS handshake (cert verify) ───>|
+   |── POST /log (encrypted JSON) ────>|── server/transactions.log
+   |<─ {"status":"OK", timestamp} ─────|
+   |                                    |
+   SD card: txn_log.txt           OLED: live status
+   (device audit trail)
+```
 
 ## Project Structure
+
+```
 banking-endpoint-simulator/
 ├── banking_endpoint/
 │   ├── banking_endpoint.ino    # ESP32-S3 firmware
-├── secrets.h.example       # Credentials template
-└── .gitignore
+│   ├── secrets.h.example       # Credentials template
+│   └── .gitignore
 └── server/
-	├── server.js               # Node.js HTTPS backend
-	├── cert.pem.example        # Certificate placeholder
-	└── package.json
+    ├── server.js               # Node.js HTTPS backend
+    ├── cert.pem.example        # Certificate placeholder
+    └── package.json
+```
 
 ## Setup
 
