@@ -1,0 +1,4 @@
+secrets.h
+server/key.pem
+server/cert.pem
+server/transactions.log
