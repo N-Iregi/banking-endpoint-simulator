@@ -37,8 +37,8 @@ ESP32-S3                         Laptop (Node.js)
 banking-endpoint-simulator/
 ├── banking_endpoint/
 │   ├── banking_endpoint.ino    # ESP32-S3 firmware
-│   ├── secrets.h.example       # Credentials template
-│   └── .gitignore
+├── secrets.h.example           # Credentials template
+└── .gitignore
 └── server/
     ├── server.js               # Node.js HTTPS backend
     ├── cert.pem.example        # Certificate placeholder
