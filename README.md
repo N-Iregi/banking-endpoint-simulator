@@ -36,12 +36,14 @@ ESP32-S3                         Laptop (Node.js)
 ```
 banking-endpoint-simulator/
 ├── banking_endpoint/
-│   ├── banking_endpoint.ino    # ESP32-S3 firmware
-├── secrets.h.example           # Credentials template
+│   ├── banking_endpoint.ino    ← main project
+├── secrets.h.example
 └── .gitignore
+├── tools/
+│   └── sd_reader/
+│       └── sd_reader.ino       ← put it here
 └── server/
-    ├── server.js               # Node.js HTTPS backend
-    ├── cert.pem.example        # Certificate placeholder
+    ├── server.js
     └── package.json
 ```
 
@@ -114,6 +116,9 @@ The ESP32-S3 acts as a hardware banking endpoint — simulating an ATM logging n
 4. Receives a timestamped confirmation response
 5. Logs the transaction result to the SD card regardless of server response — maintaining a local audit trail even during network outages
 6. Updates the OLED display with live transaction status
+
+`sd_reader.ino` allows one to read the device's local audit log over Serial without physically removing the SD card
+   -From a forensics perspective, this is exactly how to approach log retrieval on a real embedded device.
 
 ## Skills Demonstrated
 
